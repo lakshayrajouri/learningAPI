@@ -25,7 +25,7 @@ app.get("/", (req, res)=>{
         response.on("end", () => {
             try{
                 const result = JSON.parse(data);
-                console.log(result);
+                console.log(data);
                 res.render("index.ejs", {activity: result});
             }catch{
                 //error handling
