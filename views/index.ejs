@@ -6,10 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hi</h1>
+    <form action="/submit" method="post">
+        <button type="submit" value="iss" name="choice">activity</button>
+    </form>
+    <form action="/sub" method="post">
+        <button type="submit" value="activity" name="choice"></button>
+    </form>
+
+
+    <% if(locals.activity){ %>
         <h1>activity: <%= activity.activity%></h1>
         <h1>accessibility: <%= activity.accessibility %></h1>
         <h1>kid friendly: <%= activity.kidFriendly %></h1>
         <h1>link: <%= activity.link %></h1>
+    <% }else if(locals.iss){ %>
+        <h1>ISS location</h1>
+        <h2>latitude: <%= iss.latitude %></h2>
+        <h2>longitude: <%= iss.longitude %></h2>
+        <h2>altitude: <%= iss.altitude %></h2>
+        <h2>velocity: <%= iss.velocity %></h2>
+    <% }else{ %>
+        <h1>hi</h1>
+    <% } %>
 </body>
 </html>
