@@ -18,15 +18,18 @@ const option_2 = {
     path : "/random",
     method : "GET"
 };
+var request;
+
+app.use(express.static("public"));
 
 app.use(express.urlencoded({extended:1}));
 
 app.get("/", (req, res)=>{
-    res.render("index.ejs", {activity: result});   
+    res.render("index.ejs");   
 });
 
 app.post("/submit", (req, res) => {
-    const request = https.request(option_2, (response) => {  
+    request = https.request(option_2, (response) => {  
         response.on("data", (chunk)=>{
             data += chunk;
         });
@@ -50,7 +53,7 @@ app.post("/submit", (req, res) => {
 });
 
 app.post("/sub", (req, res)=>{
-    const request = https.request(option_1, (response) => {  
+    request = https.request(option_1, (response) => {  
         response.on("data", (chunk)=>{
             data += chunk;
         });
